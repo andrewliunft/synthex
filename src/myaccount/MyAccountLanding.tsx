@@ -13,8 +13,7 @@ const axios = require('axios').default;
 const MyAccountLanding = () => {
   const [collateralsasset, setcollateralsasset] = useState({})
   const [synthsasset, setsynthsasset] = useState({})
-  const [newAddress, setnewAddress] = useState("")
-  const [newTronAddress, setnewTronAddress] = useState("")
+  // const [newTronAddress, setnewTronAddress] = useState("")
   const { colorMode } = useColorMode();
   const AppData = useContext(appContext)
   const [collectralsearch, setcollectralsearch] = useState('')
@@ -54,23 +53,21 @@ const data = Object.values(collateralsasset).filter((item:any) =>
 const synthsdata = Object.values(synthsasset).filter((item:any) =>
     item.name.toLowerCase().includes(synthsearch.toLowerCase())
   )
-  // useEffect(() => {
-  //   let data:any
-  //    let newtrondata:any
-  //       data = window.localStorage.getItem('address');
-  //       setnewAddress(data)
-  //     newtrondata = window.localStorage.getItem('tron');
-  //     setnewTronAddress(newtrondata)
-      
-  // }, [newAddress,newTronAddress])
+  const etherdata=window.localStorage.getItem('address')
+  const trondata= window.localStorage.getItem('tron');
 
-  const metadata=window.localStorage.getItem('address')
-  const trondata=window.localStorage.getItem('tron')
+	useEffect(() => {
+		let etheradd=	window.localStorage.getItem('address')
+		let tronadd= window.localStorage.getItem('tron');
+		console.log(etheradd,tronadd)
+	}, [])
 
+
+console.log("tron",trondata,etherdata)
 
 return (
     <>
- {metadata || trondata ?
+ {etherdata || trondata ?
      <Tabs variant='unstyled'   mr="0.8rem" maxWidth={"1300px"} m="auto">
   <TabList>
     <Tab  _selected={{ border:"2px solid white",borderRadius:"10px"}} fontFamily={"satoshi"}>Overview</Tab>
@@ -127,7 +124,7 @@ return (
            <Box  mb="0.5rem" mt="1rem"  overflow={{sm:"auto",lg:"hidden"}} borderRight={{sm:"",md:"1px solid gray",lg:"0"}}  borderBottom={{sm:"1px solid gray",lg:"1px solid gray",md:"0"}}>
         <Text pl="1rem" fontSize={"xl"} fontWeight="600" fontFamily={"satoshi"}>Funding Account</Text>
                   {/* funding deta repeted */}
-        <Flex  alignItems={"center"} justifyContent="space-between" px="1rem" my="1rem">
+        <Flex  alignItems={"center"} justifyContent="space-between" px="1rem" my="1rem" width={{md:"16rem",lg:"100%"}}>
                   <Box display={"flex"} alignItems="center"><Image src="https://raw.githubusercontent.com/Chainscore/assets/main/BTC.png" alt='img' w="2rem" mr="0.2rem" />
                     <Text ml="0.3rem" fontFamily="basement" fontSize={"lg"}>BTC</Text> </Box>
                   <Box>
@@ -136,30 +133,13 @@ return (
                   </Box>
 
                 </Flex>
-        <Flex  alignItems={"center"} justifyContent="space-between" px="1rem" my="1rem">
-                  <Box display={"flex"} alignItems="center"><Image src="https://raw.githubusercontent.com/Chainscore/assets/main/BTC.png" alt='img' w="2rem" mr="0.2rem" />
-                    <Text ml="0.3rem" fontFamily="basement" fontSize={"lg"}>BTC</Text> </Box>
-                  <Box>
-                    <Text fontFamily="satoshi" fontSize={"lg"}>$2,5551.644</Text>
-                    <Text fontFamily="satoshi" color="gray" fontSize={"xs"}>$9,435.04</Text>
-                  </Box>
-
-                </Flex>
-        <Flex alignItems={"center"} justifyContent="space-between" px="1rem" my="1rem">
-                  <Box display={"flex"} alignItems="center"><Image src="https://raw.githubusercontent.com/Chainscore/assets/main/BTC.png" alt='img' w="2rem" mr="0.2rem" />
-                    <Text ml="0.3rem" fontFamily="basement" fontSize={"lg"}>BTC</Text> </Box>
-                  <Box>
-                    <Text fontFamily="satoshi" fontSize={"lg"}>$2,5551.644</Text>
-                    <Text fontFamily="satoshi" color="gray" fontSize={"xs"}>$9,435.04</Text>
-                  </Box>
-
-                </Flex>
+       
               </Box>
              
               <Box  mb="0.5rem" mt="1rem" overflow={{sm:"auto",lg:"hidden"}}  borderRight={{sm:"",md:"1px solid gray",lg:"0"}} borderBottom={{sm:"1px solid gray",lg:"1px solid gray",md:"0"}}>
                 <Text pl="1rem" fontSize={"xl"} fontWeight="600" fontFamily={"satoshi"}>Trading</Text>
               {/* Trading deta repeted */}
-                <Flex  alignItems={"center"} justifyContent="space-between" px="1rem" my="1rem">
+                <Flex  alignItems={"center"} justifyContent="space-between" px="1rem" my="1rem" width={{md:"15rem",lg:"100%"}}>
                   <Box display={"flex"} alignItems="center"><Image src="https://raw.githubusercontent.com/Chainscore/assets/main/BTC.png" alt='img' w="2rem" mr="0.2rem" />
                     <Text ml="0.3rem" fontFamily="basement" fontSize={"lg"}>BTC</Text> </Box>
                   <Box>
@@ -168,29 +148,12 @@ return (
                   </Box>
 
                 </Flex>
-                <Flex alignItems={"center"} justifyContent="space-between" px="1rem" my="1rem">
-                  <Box display={"flex"} alignItems="center"><Image src="https://raw.githubusercontent.com/Chainscore/assets/main/BTC.png" alt='img' w="2rem" mr="0.2rem" />
-                    <Text ml="0.3rem" fontFamily="basement" fontSize={"lg"}>BTC</Text> </Box>
-                  <Box>
-                    <Text fontFamily="satoshi" fontSize={"lg"}>$2,5551.644</Text>
-                    <Text fontFamily="satoshi" color="gray" fontSize={"xs"}>$9,435.04</Text>
-                  </Box>
-
-                </Flex>
-                <Flex alignItems={"center"} justifyContent="space-between" px="1rem" my="1rem">
-                  <Box display={"flex"} alignItems="center"><Image src="https://raw.githubusercontent.com/Chainscore/assets/main/BTC.png" alt='img' w="2rem" mr="0.2rem" />
-                    <Text ml="0.3rem" fontFamily="basement" fontSize={"lg"}>BTC</Text> </Box>
-                  <Box>
-                    <Text fontFamily="satoshi" fontSize={"lg"}>$2,5551.644</Text>
-                    <Text fontFamily="satoshi" color="gray" fontSize={"xs"}>$9,435.04</Text>
-                  </Box>
-
-                </Flex>
+             
               </Box>
              
               <Box  mb="0.5rem" mt="1rem" overflow={{sm:"auto",lg:"hidden"}} >
                 <Text pl="1rem" fontSize={"xl"}  fontWeight="600" fontFamily={"satoshi"}>Growing Balance</Text>
-                <Flex  mt="0.9rem" alignItems={"center"} justifyContent="space-between" px="1rem">
+                <Flex  mt="0.9rem" alignItems={"center"} justifyContent="space-between" px="1rem" width={{md:"16rem",lg:"100%"}}>
                   <Box display={"flex"} alignItems="center"><Image src="https://raw.githubusercontent.com/Chainscore/assets/main/BTC.png" alt='img' w="2rem" mr="0.2rem" />
                     <Text ml="0.3rem" fontFamily="basement" fontSize={"lg"}>BTC</Text> </Box>
                   <Box>

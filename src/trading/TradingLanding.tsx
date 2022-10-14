@@ -11,29 +11,12 @@ import {
 } from '@chakra-ui/react'
 import { BiSearch } from 'react-icons/bi';
 import { IoMdArrowDropup } from 'react-icons/io';
-import { useAccount } from 'wagmi';
 import { appContext } from '../Collaterals'
-
-const { Themes } = require('react-tradingview-widget');
-const TradingViewWidget = require('react-tradingview-widget');
+import { AdvancedRealTimeChart } from 'react-ts-tradingview-widgets'
+// const { TradingViewWidget,Themes } = require('react-tradingview-widget');
 const TradingLanding = () => {
-    const [newAddress, setnewAddress] = useState("")
-    const [newTronAddress, setnewTronAddress] = useState("")
     const AppData = useContext(appContext)
-    const { address } = useAccount();
     const { colorMode } = useColorMode();
-
-
-    // useEffect(() => {
-    //     let data:any;
-    //     let trondata:any
-    //       if (typeof window !== 'undefined') {
-    //         data = window.localStorage.getItem('address');
-    //         trondata = window.localStorage.getItem('tron');
-    //         setnewAddress(data)
-    //         setnewTronAddress(trondata)
-    //       } 
-    //   }, [newAddress,newTronAddress])
 
    let  data = window.localStorage.getItem('address');
   let  trondata = window.localStorage.getItem('tron');
@@ -45,7 +28,7 @@ const TradingLanding = () => {
                 <Box bg={ colorMode=="dark"?"#252525":"#efefef" } m="0.5rem" borderRadius={"10px"} display={"flex"} flexWrap="wrap" alignItems="center" justifyContent="space-between" >
                     <Flex alignItems={"center"} justifyContent="space-between" flexDirection="row" width={{sm:"100%",md:"14rem"}} mr="0.5rem">
                         <Box display={"flex"} alignItems="center" justifyContent={"flex-start"}>
-                            <Image src={BTC} alt='img' />
+                            <Image src={BTC} alt='img' w="2.5rem" mx="0.5rem" />
                             <Text fontFamily={"basement"}>BTC/USD</Text>
                         </Box>
 
@@ -118,9 +101,9 @@ const TradingLanding = () => {
 
                     <Flex flexDirection={"column"} w={{ xl: "auto", md: "100%" }} mr={{sm:"",lg:"0.3rem"}}>
                         <Box h="470px">
-                            <TradingViewWidget
+                            <AdvancedRealTimeChart
                                 symbol="BTC"
-                                theme={Themes.DARK}
+                                theme="dark"
                                 locale="in"
                                 autosize
                                 hide_side_toolbar={false}
@@ -162,7 +145,7 @@ const TradingLanding = () => {
                     </Flex >
                 </Box>
             </Box>
-            <Box bg={ colorMode=="dark"?"#171717":"#ffffff" } display="flex" flexDirection={{sm:"column",md:"row",xl:"column"}}>
+            <Box bg={ colorMode=="dark"?"#171717":"#ffffff" } display="flex" flexDirection={{sm:"column",md:"row",xl:"column"}} mt="1rem">
               
                 <Box overflow={"auto"} width="100%" mx={{sm:"0.5rem",md:""}} mr={{sm:"0.3rem",md:""}} mb={{sm:"1rem",md:""}} mt={{sm:"2.8rem",md:""}}>
                     <OrderBook />

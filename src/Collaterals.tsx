@@ -26,13 +26,15 @@ function App() {
 			setTaddress(window.tronWeb.defaultAddress.base58)
 		}
 	}
-console.log("data",Taddress)
-if(isConnected){
-	window.localStorage.setItem('address', address)
-}
-if(Taddress){
-	window.localStorage.setItem('tron', Taddress)
-}
+	console.log("data", Taddress)
+	if (isConnected) {
+		window.localStorage.setItem('address', address)
+	}
+
+	if (Taddress) {
+		window.localStorage.setItem('tron', Taddress)
+	}
+
 	let data;
 	let trondata;
 	if (typeof window !== 'undefined') {
@@ -40,14 +42,14 @@ if(Taddress){
 		trondata = window.localStorage.getItem('tron');
 	}
 
-		useEffect(() => {
-			if(isConnected){
-				window.localStorage.setItem('address', address)
-			}
-			if(Taddress){
-				window.localStorage.setItem('tron', Taddress)
-			}
-		}, [])
+	useEffect(() => {
+		if (isConnected) {
+			window.localStorage.setItem('address', address)
+		}
+		if (Taddress) {
+			window.localStorage.setItem('tron', Taddress)
+		}
+	}, [])
 
 
 	let limit_to_Borrow = CollateralBalance / (1.5)

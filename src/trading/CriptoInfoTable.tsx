@@ -37,7 +37,7 @@ import './CriptoInfoTable.css'
             <Tr >
                 <Td  id='cripto_info_table_dataLeftBorderRadius' className='cripto_info_table_data'>
                         <Box display={"flex"} alignItems="center" justifyContent={"flex-start"}>
-                        <Image src="https://raw.githubusercontent.com/Chainscore/assets/main/BTC.png" alt='img' w="2rem" mr="0.2rem" />
+                        <img src="https://raw.githubusercontent.com/Chainscore/assets/main/BTC.png" alt='img ' style={{width:"2rem" ,height:"2rem" ,margin:"0 0.3rem"}} />
                             <Text fontFamily={"basement"}>BTC/USD</Text>
                         </Box>
                 </Td>
@@ -49,96 +49,7 @@ import './CriptoInfoTable.css'
                 </Td>
 
             </Tr>
-            <Tr >
-                <Td  id='cripto_info_table_dataLeftBorderRadius' className='cripto_info_table_data'>
-                        <Box display={"flex"} alignItems="center" justifyContent={"flex-start"}>
-                        <Image src={BTC} alt='img' />
-                            <Text fontFamily={"basement"}>BTC/USD</Text>
-                        </Box>
-                </Td>
-                <Td className='cripto_info_table_data'>
-                <Box>
-                            <Text fontFamily={"satoshi"}>$20,352.8</Text>
-                            <Text fontFamily={"satoshi"} color="gray" fontSize={"xs"}>$512,535,245.07</Text>
-                        </Box>
-                </Td>
-
-            </Tr>
-            <Tr >
-                <Td  id='cripto_info_table_dataLeftBorderRadius' className='cripto_info_table_data'>
-                        <Box display={"flex"} alignItems="center" justifyContent={"flex-start"}>
-                        <Image src={BTC} alt='img' />
-                            <Text fontFamily={"basement"}>BTC/USD</Text>
-                        </Box>
-                </Td>
-                <Td className='cripto_info_table_data'>
-                <Box>
-                            <Text fontFamily={"satoshi"}>$20,352.8</Text>
-                            <Text fontFamily={"satoshi"} color="gray" fontSize={"xs"}>$512,535,245.07</Text>
-                        </Box>
-                </Td>
-
-            </Tr>
-            <Tr >
-                <Td  id='cripto_info_table_dataLeftBorderRadius' className='cripto_info_table_data'>
-                        <Box display={"flex"} alignItems="center" justifyContent={"flex-start"}>
-                        <Image src={BTC} alt='img' />
-                            <Text fontFamily={"basement"}>BTC/USD</Text>
-                        </Box>
-                </Td>
-                <Td className='cripto_info_table_data'>
-                <Box>
-                            <Text fontFamily={"satoshi"}>$20,352.8</Text>
-                            <Text fontFamily={"satoshi"} color="gray" fontSize={"xs"}>$512,535,245.07</Text>
-                        </Box>
-                </Td>
-
-            </Tr>
-            <Tr >
-                <Td  id='cripto_info_table_dataLeftBorderRadius' className='cripto_info_table_data'>
-                        <Box display={"flex"} alignItems="center" justifyContent={"flex-start"}>
-                        <Image src={BTC} alt='img' />
-                            <Text fontFamily={"basement"}>BTC/USD</Text>
-                        </Box>
-                </Td>
-                <Td className='cripto_info_table_data'>
-                <Box>
-                            <Text fontFamily={"satoshi"}>$20,352.8</Text>
-                            <Text fontFamily={"satoshi"} color="gray" fontSize={"xs"}>$512,535,245.07</Text>
-                        </Box>
-                </Td>
-
-            </Tr>
-            <Tr >
-                <Td  id='cripto_info_table_dataLeftBorderRadius' className='cripto_info_table_data'>
-                        <Box display={"flex"} alignItems="center" justifyContent={"flex-start"}>
-                        <Image src={BTC} alt='img' />
-                            <Text fontFamily={"basement"}>BTC/USD</Text>
-                        </Box>
-                </Td>
-                <Td className='cripto_info_table_data'>
-                <Box>
-                            <Text fontFamily={"satoshi"}>$20,352.8</Text>
-                            <Text fontFamily={"satoshi"} color="gray" fontSize={"xs"}>$512,535,245.07</Text>
-                        </Box>
-                </Td>
-
-            </Tr>
-            <Tr >
-                <Td  id='cripto_info_table_dataLeftBorderRadius' className='cripto_info_table_data'>
-                        <Box display={"flex"} alignItems="center" justifyContent={"flex-start"}>
-                        <Image src={BTC} alt='img' />
-                            <Text fontFamily={"basement"}>BTC/USD</Text>
-                        </Box>
-                </Td>
-                <Td className='cripto_info_table_data'>
-                <Box>
-                            <Text fontFamily={"satoshi"}>$20,352.8</Text>
-                            <Text fontFamily={"satoshi"} color="gray" fontSize={"xs"}>$512,535,245.07</Text>
-                        </Box>
-                </Td>
-
-            </Tr>
+        
     
             </Tbody>
           </Table>

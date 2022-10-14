@@ -30,8 +30,8 @@ import ConnectOptModal from './modals/ConnectOptModal'
 import { appContext } from './Collaterals'
 declare var window: any
 function Navbar() {
-  const [newAddress, setnewAddress] = useState("")
-	const [newTronAddress, setnewTronAddress] = useState("")
+  // const [newAddress, setnewAddress] = useState("")
+	// const [newTronAddress, setnewTronAddress] = useState("")
   const appData = useContext(appContext)
   const { toggleColorMode } = useColorMode();
   const { colorMode } = useColorMode();
@@ -69,13 +69,13 @@ function Navbar() {
                 </Text>
               </Link>
             </ListItem>
-            <ListItem mx="1rem">
+            {/* <ListItem mx="1rem">
               <Link to="/convert"  >
                 <Text cursor={"pointer"} my="1rem" onClick={onClose} fontFamily="satoshi" fontWeight={"bold"}>
                   Convert
                 </Text>
               </Link>
-            </ListItem>
+            </ListItem> */}
 
             <ListItem mx="1rem">
               <Link  to="/basictrading" >
@@ -85,21 +85,21 @@ function Navbar() {
               </Link>
             </ListItem>
 
-            <ListItem mx="1rem">
+            {/* <ListItem mx="1rem">
               <Link to="/market">
                 <Text cursor={"pointer"} my="1rem" onClick={onClose} fontFamily="satoshi" fontWeight={"bold"}>
                   Market
                 </Text>
               </Link>
-            </ListItem>
+            </ListItem> */}
 
-            <ListItem mx="1rem">
+            {/* <ListItem mx="1rem">
               <Link to="/margintrading" >
                 <Text cursor={"pointer"} my="1rem" onClick={onClose} fontFamily="satoshi" fontWeight={"bold"}>
                   Margin Trading
                 </Text>
               </Link>
-            </ListItem>
+            </ListItem> */}
 
             <ListItem mx="1rem">
               <Link to="/myaccount">
@@ -168,6 +168,15 @@ function Navbar() {
           <DrawerBody>
             <nav >
               <UnorderedList display={"flex"} flexDirection="column" alignItems={"strech"} justifyContent={"center"} listStyleType="none">
+              
+              <ListItem mx="1rem">
+              <Link to="/collaterals" >
+                <Text cursor={"pointer"} my="1rem" onClick={onClose} fontFamily="satoshi" fontWeight={"bold"}>
+                Collaterals
+                </Text>
+              </Link>
+            </ListItem>
+              
                 {/* <ListItem my="0.5rem">
               <Link href="/">
                 <Button variant={"outline"} w="100%"  className={router.pathname=="/" ? "sidebar_link_active ":""} fontSize="2xl" my="0.5rem" cursor={"pointer"} onClick={onClose} fontFamily="satoshi" fontWeight={"bold"}>
@@ -176,13 +185,13 @@ function Navbar() {
               </Link>
             </ListItem> */}
 
-                <ListItem mx="1rem">
+                {/* <ListItem mx="1rem">
                   <Link to="/convert">
                     <Text cursor={"pointer"} my="1rem" onClick={onClose} fontFamily="satoshi" fontWeight={"bold"}>
                       Convert
                     </Text>
                   </Link>
-                </ListItem>
+                </ListItem> */}
                 <ListItem mx="1rem">
                   <Link to= "/basictrading" >
                     <Text cursor={"pointer"} my="1rem" onClick={onClose} fontFamily="satoshi" fontWeight={"bold"}>
@@ -190,20 +199,20 @@ function Navbar() {
                     </Text>
                   </Link>
                 </ListItem>
-                <ListItem mx="1rem">
+                {/* <ListItem mx="1rem">
                   <Link to= "/market">
                     <Text cursor={"pointer"} my="1rem" onClick={onClose} fontFamily="satoshi" fontWeight={"bold"}>
                       Market
                     </Text>
                   </Link>
-                </ListItem>
-                <ListItem mx="1rem">
+                </ListItem> */}
+                {/* <ListItem mx="1rem">
                   <Link to="/margintrading" >
                     <Text cursor={"pointer"} my="1rem" onClick={onClose} fontFamily="satoshi" fontWeight={"bold"}>
                       Margin Trading
                     </Text>
                   </Link>
-                </ListItem>
+                </ListItem> */}
                 <ListItem mx="1rem">
                   <Link to= "/myaccount">
                     <Text cursor={"pointer"} my="1rem" onClick={onClose} fontFamily="satoshi" fontWeight={"bold"}>
