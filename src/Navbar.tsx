@@ -28,6 +28,7 @@ import lightlogo from '../src/Assets/light_logo.svg'
 import MetamaskConnect from './MetamaskConnect';
 import ConnectOptModal from './modals/ConnectOptModal'
 import { appContext } from './Collaterals'
+declare var window: any
 function Navbar() {
   const [newAddress, setnewAddress] = useState("")
 	const [newTronAddress, setnewTronAddress] = useState("")
@@ -37,20 +38,19 @@ function Navbar() {
   const { isOpen, onOpen, onClose } = useDisclosure()
 
 
-useEffect(() => {
-	let data:any;
-  let trondata:any;
-		if (typeof window !== 'undefined') {
-		  data = window.localStorage.getItem('address');
-      console.log(data)
-      setnewAddress(data)
-      trondata = window.localStorage.getItem('tron');
-      setnewTronAddress(trondata)
-      console.log(trondata)
-		} 
-}, [newAddress,newTronAddress])
+  // useEffect(() => {
+  //   let data;
+  //    let newtrondata;
+  //       data = window.localStorage.getItem('address');
+  //     setnewAddress(data)
+  //     newtrondata = window.localStorage.getItem('tron');
+  //     setnewTronAddress(newtrondata)
+      
+  // }, [newAddress,newTronAddress])
 
-console.log(newAddress,newTronAddress)
+
+  let   data = window.localStorage.getItem('address');
+  let  newtrondata = window.localStorage.getItem('tron');
   return (
     <>
       <Flex justify={"space-between"} alignItems={"center"} m="auto" maxWidth={"1300px"}>
@@ -61,13 +61,6 @@ console.log(newAddress,newTronAddress)
 
           <UnorderedList display={"flex"} alignItems="center" justifyContent={"space-around"} minWidth="20rem" listStyleType="none">
 
-            {/* <ListItem mx="1rem">
-              <Link href= { appData.metaaddress || appData.tronaddress ? "/convert" :"/">
-                <Text className={router.pathname=="/" ? "link_active":""} my="1rem" cursor={"pointer"} onClick={onClose} fontFamily="satoshi" fontWeight={"bold"}>
-                  Home
-                </Text>
-              </Link>
-            </ListItem> */}
 
             <ListItem mx="1rem">
               <Link to="/collaterals" >
@@ -77,7 +70,7 @@ console.log(newAddress,newTronAddress)
               </Link>
             </ListItem>
             <ListItem mx="1rem">
-              <Link to="/convert" >
+              <Link to="/convert"  >
                 <Text cursor={"pointer"} my="1rem" onClick={onClose} fontFamily="satoshi" fontWeight={"bold"}>
                   Convert
                 </Text>
@@ -85,7 +78,7 @@ console.log(newAddress,newTronAddress)
             </ListItem>
 
             <ListItem mx="1rem">
-              <Link to="/basictrading" >
+              <Link  to="/basictrading" >
                 <Text cursor={"pointer"} my="1rem" onClick={onClose} fontFamily="satoshi" fontWeight={"bold"}>
                   Basic Trading
                 </Text>
@@ -101,7 +94,7 @@ console.log(newAddress,newTronAddress)
             </ListItem>
 
             <ListItem mx="1rem">
-              <Link to="/margintrading">
+              <Link to="/margintrading" >
                 <Text cursor={"pointer"} my="1rem" onClick={onClose} fontFamily="satoshi" fontWeight={"bold"}>
                   Margin Trading
                 </Text>
@@ -109,19 +102,19 @@ console.log(newAddress,newTronAddress)
             </ListItem>
 
             <ListItem mx="1rem">
-              <Link to="/myaccount" >
+              <Link to="/myaccount">
                 <Text cursor={"pointer"} my="1rem" onClick={onClose} fontFamily="satoshi" fontWeight={"bold"}>
                   My Account
                 </Text>
               </Link>
             </ListItem>
 
-            <ListItem ml="1.1rem" w="10rem">
-              {(appData.data && appData.isConnected || newAddress) ?
+            <ListItem >
+              {( data) ?
                 <>
-                  <Menu >
-                    <MenuButton as={Button} maxW="100%" border="2px solid gray" rightIcon={<MdKeyboardArrowDown />}>
-                      <Text overflow={"hidden"} whiteSpace="nowrap" textOverflow={"ellipsis"}>{appData.data ??newAddress}</Text>
+                  <Menu>
+                    <MenuButton as={Button} w="10rem" border="2px solid gray" rightIcon={<MdKeyboardArrowDown />}>
+                      <Text overflow={"hidden"} whiteSpace="nowrap" textOverflow={"ellipsis"}>{data}</Text>
                     </MenuButton>
                     <MenuList width={"8rem"}>
                       <MenuItem fontFamily={"satoshi"} onClick={() => {
@@ -132,10 +125,10 @@ console.log(newAddress,newTronAddress)
                       </MenuItem>
                     </MenuList>
                   </Menu>
-                </> : appData.trondata  || newTronAddress?
+                </> : newtrondata?
                   <> <Menu >
                     <MenuButton as={Button} maxW="8rem" rightIcon={<MdKeyboardArrowDown />}>
-                      <Text overflow={"hidden"} whiteSpace="nowrap" textOverflow={"ellipsis"}>{appData.trondata ?? newTronAddress}</Text>
+                      <Text overflow={"hidden"} whiteSpace="nowrap" textOverflow={"ellipsis"}>{newtrondata}</Text>
                     </MenuButton>
                     <MenuList>
                       <MenuItem fontFamily={"satoshi"} onClick={() => {
@@ -220,11 +213,11 @@ console.log(newAddress,newTronAddress)
                 </ListItem>
 
                 <ListItem my="0.5rem">
-              {(appData.data && appData.isConnected || newAddress) ?
+              {(data ) ?
                 <>
                   <Menu >
-                    <MenuButton as={Button} maxW="100%" border="2px solid gray" rightIcon={<MdKeyboardArrowDown />}>
-                      <Text overflow={"hidden"} whiteSpace="nowrap" textOverflow={"ellipsis"}>{appData.data ??newAddress}</Text>
+                    <MenuButton as={Button} w="10rem" border="2px solid gray" rightIcon={<MdKeyboardArrowDown />}>
+                      <Text overflow={"hidden"} whiteSpace="nowrap" textOverflow={"ellipsis"}>{data }</Text>
                     </MenuButton>
                     <MenuList width={"8rem"}>
                       <MenuItem fontFamily={"satoshi"} onClick={() => {
@@ -235,10 +228,10 @@ console.log(newAddress,newTronAddress)
                       </MenuItem>
                     </MenuList>
                   </Menu>
-                </> : appData.trondata  || newTronAddress?
+                </> : newtrondata?
                   <> <Menu >
                     <MenuButton as={Button} maxW="8rem" rightIcon={<MdKeyboardArrowDown />}>
-                      <Text overflow={"hidden"} whiteSpace="nowrap" textOverflow={"ellipsis"}>{appData.trondata ?? newTronAddress}</Text>
+                      <Text overflow={"hidden"} whiteSpace="nowrap" textOverflow={"ellipsis"}>{newtrondata}</Text>
                     </MenuButton>
                     <MenuList>
                       <MenuItem fontFamily={"satoshi"} onClick={() => {

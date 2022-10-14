@@ -10,6 +10,7 @@ import {
 	InputRightElement,
 	InputGroup,Spinner,Link,useColorMode
 } from '@chakra-ui/react';
+import './ConnectOptModal.css'
 // import tronWeb from 'tronweb';
 import {
 	Modal,
@@ -65,7 +66,7 @@ const ConnectOptModal = () => {
                           {(() => {
                             if (!mounted || !account || !chain) {
                               return (
-                                <Box w="8rem" _hover={{ transform:" scale(0.98)"}} onClick={openConnectModal} h="8rem" bg="#FFFFFF" borderRadius={"8px"} cursor="pointer">
+                                <Box w="8rem"   _hover={{ transform:" scale(0.98)"}} onClick={openConnectModal} h="8rem" bg="#FFFFFF" borderRadius={"8px"} cursor="pointer">
                                 <Image src={ETHER} alt="" className='ether_for_connect' />
                                 <Text color="gray" fontSize={"xs"} textAlign={"center"} fontFamily={"basement"}>Ethereum</Text>
                                 </Box>
@@ -91,7 +92,7 @@ const ConnectOptModal = () => {
                     }}
                   </ConnectButton.Custom> 
                  
-                    <Box cursor="pointer"   _hover={{ transform:" scale(0.98)"}} onClick={()=>{
+                    <Box cursor="pointer"    _hover={{ transform:" scale(0.98)"}} onClick={()=>{
                       AppData.TronConnect()
                     }} w="8rem" h="8rem"  bg="#FF060A" borderRadius={"8px"}>
                     <Image  src={TRON} alt="" className='tron_for_connect' />

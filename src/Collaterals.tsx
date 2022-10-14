@@ -12,8 +12,6 @@ export const appContext = createContext<any|null>(null);
 declare var window: any
 function App() {
 	const[Taddress, setTaddress]= useState("")
-	const [newAddress, setnewAddress] = useState("")
-	const [newTronAddress, setnewTronAddress] = useState("")
 	// const [collateralsasset, setcollateralsasset] = useState({})
 	const { address,isConnected } = useAccount();
 	const { colorMode } = useColorMode();
@@ -24,42 +22,45 @@ function App() {
 	const [minCRatio, setMinCRatio] = useState(0)
 
 	function TronConnect() {
-		if (window.tronWeb && window.tronWeb.defaultAddress.base58 && typeof window !== 'undefined') {
-			setTaddress(window.tronWeb.defaultAddress.base58)	
+		if (window.tronWeb && window.tronWeb.defaultAddress.base58) {
+			setTaddress(window.tronWeb.defaultAddress.base58)
 		}
 	}
-		if ( typeof window !== 'undefined' && isConnected) {
-			window.localStorage.setItem('address', address)
-		} 
-		if ( typeof window !== 'undefined' && Taddress) {
-			window.localStorage.setItem('tron', Taddress)
-		} 
-
+console.log("data",Taddress)
+if(isConnected){
+	window.localStorage.setItem('address', address)
+}
+if(Taddress){
+	window.localStorage.setItem('tron', Taddress)
+}
 	let data;
 	let trondata;
 	if (typeof window !== 'undefined') {
 		data = window.localStorage.getItem('address');
 		trondata = window.localStorage.getItem('tron');
 	}
+
 		useEffect(() => {
-			let data;
-			 let newtrondata;
-				if (typeof window !== 'undefined') {
-				  data = window.localStorage.getItem('address');
-			  setnewAddress(data)
-			  newtrondata = window.localStorage.getItem('tron');
-			  setnewTronAddress(newtrondata)
-				} 
-		}, [newAddress,newTronAddress])
+			if(isConnected){
+				window.localStorage.setItem('address', address)
+			}
+			if(Taddress){
+				window.localStorage.setItem('tron', Taddress)
+			}
+		}, [])
+
+
 	let limit_to_Borrow = CollateralBalance / (1.5)
 	let available_to_Borrow = limit_to_Borrow - BorrowBalance;
 
-	console.log(data,trondata,isConnected)
 	return (
 		<>
-			<appContext.Provider value={{TronConnect, data,trondata, isConnected}}>
+		<div style={{margin:"0 1.5rem"}}>
+			<appContext.Provider value={{TronConnect, data,trondata,isConnected,address,Taddress}}>
+			
+			
 				<Navbar />
-				{address || trondata || newAddress ||newTronAddress? 
+				{address || trondata || data ||Taddress? 
 				<Box maxWidth={"1300px"} m="auto">
 					<Flex flexDirection={{ sm: 'column', lg: 'row' }}
 						my="1rem"
@@ -130,7 +131,7 @@ function App() {
 					</Flex>
 				</Box> : <MetamaskConnect />}
 			</appContext.Provider>
-
+</div>
 		</>
 	);
 }

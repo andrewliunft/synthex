@@ -15,6 +15,7 @@ import {
 } from '@chakra-ui/react';
 import IssueModel from './modals/IssueModal';
 import RepayModel from './modals/RepayModal';
+import './IssuanceTable.css'
 
 const IssuanceTable = ({ debts, minCRatio, collateralBalance, cRatio }:any) => {
 	const { colorMode } = useColorMode();

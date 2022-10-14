@@ -24,21 +24,23 @@ const TradingLanding = () => {
     const { colorMode } = useColorMode();
 
 
-    useEffect(() => {
-        let data:any;
-        let trondata:any
-          if (typeof window !== 'undefined') {
-            data = window.localStorage.getItem('address');
-            trondata = window.localStorage.getItem('tron');
-            setnewAddress(data)
-            setnewTronAddress(trondata)
-          } 
-      }, [newAddress,newTronAddress])
+    // useEffect(() => {
+    //     let data:any;
+    //     let trondata:any
+    //       if (typeof window !== 'undefined') {
+    //         data = window.localStorage.getItem('address');
+    //         trondata = window.localStorage.getItem('tron');
+    //         setnewAddress(data)
+    //         setnewTronAddress(trondata)
+    //       } 
+    //   }, [newAddress,newTronAddress])
 
+   let  data = window.localStorage.getItem('address');
+  let  trondata = window.localStorage.getItem('tron');
     return (
         <>
-{AppData.address || newAddress || newTronAddress || AppData.trondata?
-        <Container  flexDirection={{xl:"row",sm:"column"}} display={"flex"} px="0" minWidth="100%" justifyContent={"space-between"} maxWidth="1300px">
+{trondata|| data  ?
+        <Container  flexDirection={{xl:"row",sm:"column"}} display={"flex"} px="0" width="100%" justifyContent={"space-between"} maxWidth="1300px" m="auto">
             <Box display={"flex"} flexDirection="column" width="100%"   bg={ colorMode=="dark"?"#171717":"#ffffff" }>
                 <Box bg={ colorMode=="dark"?"#252525":"#efefef" } m="0.5rem" borderRadius={"10px"} display={"flex"} flexWrap="wrap" alignItems="center" justifyContent="space-between" >
                     <Flex alignItems={"center"} justifyContent="space-between" flexDirection="row" width={{sm:"100%",md:"14rem"}} mr="0.5rem">
@@ -184,4 +186,4 @@ const TradingLanding = () => {
     )
 }
 
-export default TradingLanding           
+export default TradingLanding;       

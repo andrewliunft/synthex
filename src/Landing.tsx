@@ -6,16 +6,21 @@ import CollateralTable from './CollateralTable';
 import { getContract } from './utils';
 import { useAccount } from 'wagmi';
 import { MdOutlineOpenInNew } from 'react-icons/md';
+import { useNavigate } from 'react-router-dom';
 import coin_image from '../public/coin_image.svg'
 import Navbar_landing from './Navbar_landing';
+import './Landing.css'
 const Landing = () => {
+	const navigate = useNavigate();
   return (
     <>
+	<div style={{margin:"auto" ,maxWidth:"1300px",padding:"0 1rem"}} >
+
     		<Navbar_landing />
-            <Box w="100%" h="100%" mt="3rem">
+            <Box w="100%" h="100%" mt="3rem"  mx="auto" >
 				<Text
 					maxW={'95%'}
-					fontSize={{sm:"3xl",lg:'6xl'}}
+					fontSize={{sm:"5xl",lg:'6xl'}}
 					fontFamily="Basement"
 					lineHeight={"1.3"}
 					textAlign={{sm:"center",lg:"left"}}
@@ -24,9 +29,9 @@ const Landing = () => {
 					Overcollateralised Asset Issuance and <span style={{ color: "#0CAD4B" }}>Trading Protocol</span>
 				</Text>
 				<Flex   justifyContent={"center"} w="100%">
-					<Box width={"50%"} textAlign={{sm:'center',lg:"left"}} >
+					<Box width={{sm:"100%",lg:"50%"}} textAlign={{sm:'center',lg:"left"}} >
 
-						<Text maxWidth={"50rem"}
+						<Text maxWidth={"28rem"}
 							fontSize={'xl'}
 							fontWeight={'medium'}
 							
@@ -37,9 +42,9 @@ const Landing = () => {
 						<Box mt={5} textAlign={{sm:'center',lg:"left"}}>
 
 							<Button size="lg"
-								// onClick={() => {
-								// 	router.push("/app")
-								// }}
+								onClick={() => {
+									navigate('/collaterals');
+								}}
 								colorScheme={'whatsapp'}
 								bg="#0CAD4B"
 								color={"white"}
@@ -73,16 +78,16 @@ const Landing = () => {
 							</Box>
 						</Flex>
 					</Box>
-					<Box  width="50%">
+					<Box  display={{sm:"none",lg:"block"}} width={{sm:"100%",lg:"50%"}}>
 
 					
-					<Box className='rad' w="40rem" h="35rem" mt="-2rem"  display={{sm:"none",lg:"block"}}>
+					<Box className='rad' w="40rem" h="35rem" mt="-3rem"  display={{sm:"none",lg:"block"}}>
 						<Box className='bg' ml="5rem" w="90%" height={"77%"}></Box>
 					</Box>
 					</Box>
 				</Flex>
 			</Box>
-
+</div>
     </>
   )
 }

@@ -1,5 +1,6 @@
     import React from 'react'
     import {CgArrowsExchange} from 'react-icons/cg';
+    import './AssetTable.css'
     import {
       Table,
       Thead,

@@ -1,5 +1,5 @@
-
-    import React from 'react'
+import React from 'react'
+    import {BiWalletAlt} from 'react-icons/bi';
     import {
       Table,
       Thead,
@@ -11,7 +11,7 @@
       TableCaption, Button, useDisclosure,Image,
       TableContainer, Box, Text, Flex,useColorMode,
     } from '@chakra-ui/react'
-import {BiWalletAlt} from 'react-icons/bi';
+    import './RecentTransTable.css'
     const RecentTransTable = ({transactionType,img}:any) => { 
       const { colorMode } = useColorMode();
       const { isOpen, onOpen, onClose } = useDisclosure()

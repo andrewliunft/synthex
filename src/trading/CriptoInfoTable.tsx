@@ -11,7 +11,7 @@
       TableCaption, Button, useDisclosure,
       TableContainer, Box, Text, Flex,useColorMode,Image
     } from '@chakra-ui/react'
-
+import './CriptoInfoTable.css'
    
     import BTC from '../Assets/bitCoin.png'
     const CriptoInfoTable = () => {

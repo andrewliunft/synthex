@@ -1,7 +1,24 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins&family=Roboto&display=swap');
+
+@font-face {
+  font-family: 'basement';
+  src: url('./Assets/basement-grotesque/BasementGrotesque-Black_v1.202.otf');
+
+  font-style: normal;
+  }
+  
+@font-face {
+  font-family: 'Satoshi';
+  src: url('./Assets/Satoshi_Complete/Fonts/OTF/Satoshi-Light.otf');
+  font-style: normal;
+  }
+
+
 .App {
   text-align: center;
 }
-
+  
 .App-logo {
   height: 40vmin;
   pointer-events: none;

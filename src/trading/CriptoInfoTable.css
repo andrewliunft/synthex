@@ -1,0 +1,32 @@
+.cripto_info_table_data {
+    text-align: center;
+    border-right: hidden;
+    padding: 10px;
+  }
+  .cripto_info_table_rows:hover .cripto_info_table_data {
+    background-color: #dde0e0;
+  }
+  .cripto_info_table_Head {
+    font-weight: bold;
+    height: 25px;
+    text-align: center;
+    border-right: hidden;
+    padding: 10px;
+  }
+  
+  #cripto_info_table_HeadingLeftBorderRadius{
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+  }
+  #cripto_info_table_HeadingRightBorderRadius{
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+  }
+  #cripto_info_table_dataLeftBorderRadius{
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+  }
+  #cripto_info_table_datarightBorderRadius{
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+  } 

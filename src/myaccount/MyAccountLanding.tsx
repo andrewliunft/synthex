@@ -9,19 +9,16 @@ import SynthassetTable from './SynthassetTable'
 import { BiSearch } from 'react-icons/bi';
 import { appContext } from '../Collaterals'
 import MetamaskConnect from '../MetamaskConnect';
-import { useAccount } from 'wagmi';
 const axios = require('axios').default;
 const MyAccountLanding = () => {
   const [collateralsasset, setcollateralsasset] = useState({})
   const [synthsasset, setsynthsasset] = useState({})
   const [newAddress, setnewAddress] = useState("")
   const [newTronAddress, setnewTronAddress] = useState("")
-  const { address } = useAccount();
   const { colorMode } = useColorMode();
   const AppData = useContext(appContext)
   const [collectralsearch, setcollectralsearch] = useState('')
   const [synthsearch, setsynthsearch] = useState('')
-
 useEffect(() => {
   axios.get('http://localhost:3031/user/TAHfCaWwkxbrg2fNeTmqDhZ3xumExNi9qg/collateral')
     .then((resp:any) => {
@@ -57,22 +54,24 @@ const data = Object.values(collateralsasset).filter((item:any) =>
 const synthsdata = Object.values(synthsasset).filter((item:any) =>
     item.name.toLowerCase().includes(synthsearch.toLowerCase())
   )
-  useEffect(() => {
-    let data:any;
-    let trondata:any
-      if (typeof window !== 'undefined') {
-        data = window.localStorage.getItem('address');
-        trondata = window.localStorage.getItem('tron');
-        setnewAddress(data)
-        setnewTronAddress(trondata)
-      } 
-  }, [newAddress,newTronAddress])
+  // useEffect(() => {
+  //   let data:any
+  //    let newtrondata:any
+  //       data = window.localStorage.getItem('address');
+  //       setnewAddress(data)
+  //     newtrondata = window.localStorage.getItem('tron');
+  //     setnewTronAddress(newtrondata)
+      
+  // }, [newAddress,newTronAddress])
 
-  console.log("address",AppData.address,newAddress,newTronAddress,AppData.trondata)
+  const metadata=window.localStorage.getItem('address')
+  const trondata=window.localStorage.getItem('tron')
+
+
 return (
     <>
- {AppData.address || newAddress || newTronAddress || AppData.trondata?
-     <Tabs variant='unstyled'  width="100%" mr="0.8rem">
+ {metadata || trondata ?
+     <Tabs variant='unstyled'   mr="0.8rem" maxWidth={"1300px"} m="auto">
   <TabList>
     <Tab  _selected={{ border:"2px solid white",borderRadius:"10px"}} fontFamily={"satoshi"}>Overview</Tab>
     <Tab _selected={{ border:"2px solid white",borderRadius:"10px"}} fontFamily={"satoshi"}>Funding</Tab>

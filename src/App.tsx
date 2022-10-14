@@ -1,4 +1,4 @@
-import React from 'react';
+import React,{useEffect} from 'react';
 import './App.css';
 import '@rainbow-me/rainbowkit/styles.css';
 import { RainbowKitProvider, getDefaultWallets, darkTheme } from '@rainbow-me/rainbowkit';
@@ -11,6 +11,7 @@ import { mode } from "@chakra-ui/theme-tools";
 import { Routes, Route, Link } from "react-router-dom";
 import Landing from './Landing';
 import Basictrading from './Basictrading';
+import { Navigate } from "react-router-dom";
 import Myaccount from './Myaccount'
 import Collaterals from './Collaterals'
 function App() {
@@ -64,17 +65,25 @@ function App() {
   };
   const theme = extendTheme({ config,breakpoints,styles })
 
+
+
+
+  
+
+  let  data = window.localStorage.getItem('address');
+  let  trondata = window.localStorage.getItem('tron');
+  console.log("data",data,trondata)
   return (
     <ChakraProvider theme={theme}>
-    <WagmiConfig client={wagmiClient}>
-      <RainbowKitProvider chains={chains} theme={darkTheme()}>
-      <Routes>
-        <Route path="/" element={<Landing />} />
-        <Route path="/basictrading" element={<Basictrading />} />
-        <Route path="/myaccount" element={<Myaccount />} />
-        <Route path="/collaterals" element={<Collaterals />} />
-      </Routes>
-      </RainbowKitProvider>
+      <WagmiConfig client={wagmiClient}>
+        <RainbowKitProvider chains={chains} theme={darkTheme()}>
+          <Routes>
+            <Route path="/" element={<Landing />} />
+            <Route path="/basictrading" element={(trondata || data) ? <Basictrading />:<Navigate  replace={true} to="/collaterals"/>} />
+            <Route path="/myaccount" element={(trondata || data) ?<Myaccount />:<Navigate replace={true} to="/collaterals" />} />
+            <Route path="/collaterals" element={<Collaterals />} />
+          </Routes>
+        </RainbowKitProvider>
     </WagmiConfig>
     </ChakraProvider>
   );

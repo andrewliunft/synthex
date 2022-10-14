@@ -1,0 +1,10 @@
+.bg{
+    background-image: url("./Assets/coin.svg");
+    background-size:(100%,100%);
+   background-position: right center;;
+   background-repeat: no-repeat;
+   transform: scale(1);
+  }
+  .rad{
+    background-image: radial-gradient(50% 50% at 50% 50%,#a92c65a6, rgba(0, 0, 0, 0) 100%);
+  }

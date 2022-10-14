@@ -12,6 +12,7 @@ import {
 } from '@chakra-ui/react'
 import DepositModal from './modals/DepositModal';
 import WithdrawModal from './modals/WithdrawModal';
+import './CollateralTable.css'
 import { FiMinusCircle } from 'react-icons/fi';
 const CollateralTable = (collaterals:any, cRatio:any) => {
   const { colorMode } = useColorMode();
